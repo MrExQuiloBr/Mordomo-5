@@ -1,0 +1,1 @@
+{"conta_340959314808406017":{"value":"@samurairj_","type":"string","key":"conta_340959314808406017"},"estado_1171963692984844401":{"value":"São Paulo","type":"string","key":"estado_1171963692984844401"}}

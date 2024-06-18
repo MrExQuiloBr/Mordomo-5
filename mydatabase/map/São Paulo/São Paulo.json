@@ -1,0 +1,29 @@
+{
+  "Inicio": "São Paulo",
+  "Destino": "Sorocaba",
+  "Pagamento": "1600",
+  "Tempo": "1 horas e 36 minutos",
+  "EmpresaInicial": "Hospital Principal",
+  "EmpresaFinal": "Hospital Dr. Miguel Soeiro",
+  "Reboque": "Normal",
+  "Entrega": "Dispositivos médicos",
+  "xpnecessário": "0",
+  "caminhao": "0",
+  "Imagem": "https://media.discordapp.net/attachments/1247245575284326543/1247245620285014127/Screenshot_20240603_144755_Maps.jpg?ex=665f5380&is=665e0200&hm=725c15d05cb143486b08327aa5f5e217fae7e08ebe7f3c35021c14eae8235582&",
+  "Local": "Após a viagem você retornará a Cidade de onde saiu!, pois, essa cidade ainda não é uma cidade com programação escrita!",
+  "Estado": "São Paulo"
+},,,{
+  "Inicio": "São Paulo",
+  "Destino": "Campinas",
+  "Pagamento": "800",
+  "Tempo": "2 horas e 9 minutos",
+  "EmpresaInicial": "Refinaria de Petróleo Petrobrás",
+  "EmpresaFinal": "Posto de gasolina de Campinas",
+  "Reboque": "Combustivel",
+  "Entrega": "Gasolina",
+  "xpnecessário": "0",
+  "caminhao": "0",
+  "Imagem": "https://media.discordapp.net/attachments/1247245575284326543/1247247857195548772/Screenshot_20240603_145716_Maps.jpg?ex=665f5595&is=665e0415&hm=f10174aaaf42284bb0e3d592b4298b08016cb13193d939f4889c18a2f69106bc&",
+  "Local": "Após a viagem você retornará a Cidade de onde saiu!, pois, essa cidade ainda não é uma cidade com programação escrita!",
+  "Estado": "São Paulo"
+}

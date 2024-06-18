@@ -1,0 +1,1 @@
+{"pontos_340959314808406017":{"value":"48","type":"number","key":"pontos_340959314808406017"},"cidade_1171963692984844401":{"value":"São Paulo","type":"string","key":"cidade_1171963692984844401"}}
