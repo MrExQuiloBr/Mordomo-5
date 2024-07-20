@@ -29,7 +29,7 @@ module.exports = [{
   prototype: "button",
   $if: "old",
   code: `
-  $interactionUpdate[.]
+  $deleteCommand
   $title[🚛 | Viajar | 🚛]
   $description[**📍 | Início:** $getObjectProperty[rotas;Inicio]
   **📌 | Destino:** $getObjectProperty[rotas;Destino]
@@ -64,7 +64,7 @@ module.exports = [{
   type: "interaction",
   prototype: "button",
   code: `
-  $interactionUpdate[.]
+  $deleteCommand
   $title[🚛 | Viajar | 🚛]
   $description[**📍 | Início:** $getObjectProperty[rotas;Inicio]
   **📌 | Destino:** $getObjectProperty[rotas;Destino]
@@ -97,21 +97,32 @@ module.exports = [{
   type: "interaction",
   prototype: "button",
   code: `
-  $interactionUpdate[.]
+  $deleteCommand
   $title[🚛 | Viajar | 🚛]
   $description[**📍 | Início:** $getGlobalUserVar[cidade;$authorID]
   **📌 | Destino:** $get[city]
+  **🌃 | Estado:** $get[estado]
   **🏭 | Empresa Inicial:** $get[empresaINI]
   **🏭 | Empresa Final:** $get[empresaFIM]
   **💵 | Pagamento:** R$$numberSeparator[$get[pagamento]]
   **⏰ | Tempo:** $get[tempo] minutos
-  **🏙️ | Local:** $if[$getObjectProperty[city2;program]==true;Após a viagem você vai ficar em $get[city]!;Após a viagem você voltará a cidade de onde saiu!]]
+  **🏙️ | Local:** $get[local]]
   $thumbnail[$getObjectProperty[city2;image]]
   $footer[entregas geradas!]
   $color[#ff0000]
   $addButton[1;;primary;Gerador;false;▶️]
   $addButton[1;Aceitar entrega;success;ACTG_$authorID;false;✅]
-
+  $setGlobalUserVar[enGerada;{
+  "inicio": "$getGlobalUserVar[cidade;$authorID]",
+  "destino": "$get[city]",
+  "estado": "$get[estado]",
+  "empresaini": "$get[empresaINI]",
+  "empresafim": "$get[empresaFIM]",
+  "pagamento": "$get[pagamento]",
+  "tempo": "$get[tempo]",
+  "local": "$get[local]"
+  };$authorID]
+  $let[local;$if[$getObjectProperty[city2;program]==true;Após a viagem você vai ficar em $get[city]!;Após a viagem você voltará a cidade de onde saiu!]]
   $let[tempo;$if[$get[estado]==$getGlobalUserVar[estado;$authorID];$random[40;100];$random[100;350]]]
   $let[pagamento;$if[$get[estado]==$getGlobalUserVar[estado;$authorID];$random[221;771];$random[771;2089]]]
   
@@ -122,5 +133,55 @@ module.exports = [{
   $textSplit[$readFile[./mydatabase/map/$get[estado]/city.config];,]
   $let[estado;$randomText[São Paulo;Rio de Janeiro]]
   $createObject[city1;$readFile[./mydatabase/map/$getGlobalUserVar[estado;$authorID]/$getGlobalUserVar[cidade;$authorID].config]]
+  `
+},{
+  // entrega aceita
+  type: "interaction",
+  prototype: "button",
+  code: `
+  $setGlobalUserVar[emviagem;true;$authorID]
+  $title[🚛 | Viajar | 🚛]
+  $description[Você aceitou a viagem!
+  **📍 | Início:** $getGlobalUserVar[cidade;$authorID]
+  **📌 | Destino:** $getObjectProperty[rotas;Destino]
+  **💵 | Pagamento:** R$$numberSeparator[$getObjectProperty[rotas;Pagamento]]]
+  $setGlobalUserVar[viagemType;normal;$authorID]
+  $setGlobalUserVar[viagem;$getGlobalUserVar[page;$authorID];$authorID]
+  $thumbnail[$getObjectProperty[rotas;Imagem]]
+  $color[#82FA58]
+  $createObject[rotas;$splitText[$getGlobalUserVar[page;$authorID]]]
+  $textSplit[$readFile[./mydatabase/map/$getGlobalUserVar[estado;$authorID]/$getGlobalUserVar[cidade;$authorID].json];,,,]
+  $onlyIf[$advancedTextSplit[$interactionData[customId];_;2]==$interactionData[author.id];{options:{ephemeral:true}}
+    {extraOptions:{interaction:true}}]
+    $onlyIf[$advancedTextSplit[$interactionData[customId];_;1]==ACTR;]
+  `
+},{
+  // aceitar entrega gerada
+  type: "interaction",
+  prototype: "button",
+  code: `
+  $setGlobalUserVar[tempoviagem;$get[hora]/$get[minuto];$authorID]
+  $let[hora;$sum[$get[hour];$hour]]
+  $let[minuto;$get[minute]]
+  $let[hour;$if[$math[$advancedTextSplit[$get[tempo1];.;1]+$hour]>=24;$math[$advancedTextSplit[$get[tempo1];.;1]-24];$advancedTextSplit[$get[tempo1];.;1]]]
+  $let[minute;$if[$math[$get[tempo2]+$minute]>=60;$math[$get[tempo2]+$minute-60];$get[tempo2]]]
+  $let[tempo2;$if[$advancedTextSplit[$get[tempo1];.;2]>=60;$random[1;15];$advancedTextSplit[$get[tempo1];.;2]]]
+  $let[tempo1;$roundTenth[$math[$get[tempo]/60];2]]
+  $let[tempo;$getObjectProperty[user;tempo]]
+  $setGlobalUserVar[emviagem;true;$authorID]
+  $title[🚛 | Viajar | 🚛]
+  $description[você aceitou a entrega gerada!
+  **📍 | Início:** $getGlobalUserVar[cidade;$authorID]
+  **📌 | Destino:** $getObjectProperty[user;destino]
+  **🌃 | Estado:** $getObjectProperty[user;estado]
+  **💵 | Pagamento:** R$$numberSeparator[$getObjectProperty[user;pagamento]]]
+  $color[#82FA58]
+  $thumbnail[$getObjectProperty[city2;image]]
+  $setGlobalUserVar[viagemType;gerada;$authorID]
+  $createObject[city2;$readFile[./mydatabase/map/$getObjectProperty[user;estado]/$getObjectProperty[user;destino].config]]
+  $createObject[user;$getGlobalUserVar[enGerada;$authorID]]
+  $onlyIf[$advancedTextSplit[$interactionData[customId];_;2]==$interactionData[author.id];{options:{ephemeral:true}}
+    {extraOptions:{interaction:true}}]
+    $onlyIf[$advancedTextSplit[$interactionData[customId];_;1]==ACTG;]
   `
 }]

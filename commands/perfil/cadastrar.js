@@ -26,7 +26,11 @@ o processo do registro pode demorar, o processo para validar sua conta pode acab
   type: "interaction",
   prototype: "button",
   code: `
-  $interactionUpdate[;{newEmbed:{title:📋 | Cadastro | 📋}{description:sua conta foi definida com sucesso! você vai querer privar o seu nome? lembrando que seu nome do TikTok não irá aparecer caso alguém use m.perfil em você, porém irá aparecer caso algum administrador use um comando especial!}{color:c3ffb1}}{actionRow:{button:Privar:danger:PRV_$authorID:false:🔒}{button:Não Privar:success:NPRV_$authorID:false:🔓}}]
+  $title[📋 | Cadastro | 📋]
+  $description[sua conta foi definida com sucesso! você vai querer privar o seu nome? lembrando que seu nome do TikTok não irá aparecer caso alguém use m.perfil em você, porém irá aparecer caso algum administrador use um comando especial!]
+  $color[#c3ffb1]
+  $addButton[1;Privar tiktok;secondary;PRV_$authorID;false;🔒]
+  $addButton[1;Tiktok Público;secondary;NPRV_$authorID;false;🔓]
   $onlyIf[$advancedTextSplit[$interactionData[customId];_;2]==$interactionData[author.id];{options:{ephemeral:true}}
     {extraOptions:{interaction:true}}]
     $onlyIf[$advancedTextSplit[$interactionData[customId];_;1]==CASIM;]
@@ -59,7 +63,9 @@ $setGlobalUserVar[privado;false;$authorID]
   type: "interaction",
   prototype: "button",
   code: `
-  $interactionUpdate[;{newEmbed:{title:📋 | Cadastro | 📋}{description:❌ | ação cancelada!}{color:c3ffb1}}]
+  $title[📋 | Cadastro | 📋]
+  $description[❌ | ação cancelada!]
+  $color[#ff0000]
   $setGlobalUserVar[conta;x;$authorID]
   
   $onlyIf[$advancedTextSplit[$interactionData[customId];_;2]==$interactionData[author.id];{options:{ephemeral:true}}

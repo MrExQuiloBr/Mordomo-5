@@ -14,6 +14,7 @@ const client = new AoiClient({
     }
 });
 client.variables({
+    version: "1.0.4",
     conta: "x",
     privado: false,
     pontos: 0,
@@ -21,18 +22,33 @@ client.variables({
     cidade: "São Paulo",
     page: "1",
     viagem: "false",
+    emviagem: "false",
     viagemfeita: 0,
     money: 0,
     caminhão: "x",
+    enGerada: "x",
+    viagemType: "x",
+    posição: "<@&1241357767831326780>",
+    tempoviagem: "x",
 });
 
-const manutencao = "não"
+const manutencao = "sim"
 
 if (manutencao === "não") {
     client.status({
         name: "Online para o Rotas Br 116!",
         type: "PLAYING",
+        time: 20
+    });
+    client.status({
+        name: "Use m.help!",
+        type: "PLAYING",
         time: 12
+    });
+    client.status({
+        name: "Na versão $getVar[version]",
+        type: "PLAYING",
+        time: 18
     });
 } else if (manutencao === "sim") {
     client.status({
@@ -43,9 +59,10 @@ if (manutencao === "não") {
     });
 }
 
+
 client.joinCommand({ // Exclude "on" of the event's name. For example, "onTypingStart" becomes "typingStartCommand"
   channel: "1241346112124616744",
-  code: `$username Seja bem vindo(a)!`
+  code: `**$username** entrou no server! Seja bem vindo(a)!`
 });
 
 client.loadCommands("./commands");

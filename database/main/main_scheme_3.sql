@@ -1,1 +1,1 @@
-{"privado_1171963692984844401":{"value":"false","type":"string","key":"privado_1171963692984844401"}}
+{"privado_1171963692984844401":{"value":"false","type":"string","key":"privado_1171963692984844401"},"pontos_1021204685782257775":{"value":"383","type":"number","key":"pontos_1021204685782257775"}}
