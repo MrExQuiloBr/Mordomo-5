@@ -30,9 +30,10 @@ client.variables({
     viagemType: "x",
     posição: "<@&1241357767831326780>",
     tempoviagem: "x",
+    tentativas: "0",
 });
 
-const manutencao = "sim"
+const manutencao = "não"
 
 if (manutencao === "não") {
     client.status({
