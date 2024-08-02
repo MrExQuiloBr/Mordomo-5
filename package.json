@@ -12,6 +12,7 @@
   "dependencies": {
     "@akarui/aoi.db": "^2.3.3",
     "@types/node": "^18.0.6",
+    "aoi.canvas": "^2.0.6",
     "aoi.js": "^6.8.5",
     "express": "^4.19.2"
   }

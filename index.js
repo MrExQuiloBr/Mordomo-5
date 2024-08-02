@@ -1,4 +1,5 @@
 const { AoiClient } = require("aoi.js");
+const { AoiCanvas } = require("aoi.canvas");
 
 const client = new AoiClient({
     token: process.env.TOKEN, // Here goes the Token you copied earlier!
@@ -13,8 +14,11 @@ const client = new AoiClient({
         securityKey: "CpnxtRlQBNuWDWXlJIgpEWVkhQEIuCya"
     }
 });
+
+const canvas = new AoiCanvas(client);
+
 client.variables({
-    version: "1.0.4",
+    version: "1.0.6 (error fixed)",
     conta: "x",
     privado: false,
     pontos: 0,
@@ -23,7 +27,7 @@ client.variables({
     page: "1",
     viagem: "false",
     emviagem: "false",
-    viagemfeita: 0,
+    buttonpress: "false",
     money: 0,
     caminhão: "x",
     enGerada: "x",
@@ -31,6 +35,7 @@ client.variables({
     posição: "<@&1241357767831326780>",
     tempoviagem: "x",
     tentativas: "0",
+    minigame: "0",
 });
 
 const manutencao = "não"

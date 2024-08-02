@@ -160,14 +160,7 @@ module.exports = [{
   type: "interaction",
   prototype: "button",
   code: `
-  $setGlobalUserVar[tempoviagem;$get[hora]/$get[minuto];$authorID]
-  $let[hora;$sum[$get[hour];$hour]]
-  $let[minuto;$get[minute]]
-  $let[hour;$if[$math[$advancedTextSplit[$get[tempo1];.;1]+$hour]>=24;$math[$advancedTextSplit[$get[tempo1];.;1]-24];$advancedTextSplit[$get[tempo1];.;1]]]
-  $let[minute;$if[$math[$get[tempo2]+$minute]>=60;$math[$get[tempo2]+$minute-60];$get[tempo2]]]
-  $let[tempo2;$if[$advancedTextSplit[$get[tempo1];.;2]>=60;$random[1;15];$advancedTextSplit[$get[tempo1];.;2]]]
-  $let[tempo1;$roundTenth[$math[$get[tempo]/60];2]]
-  $let[tempo;$getObjectProperty[user;tempo]]
+  $sendMessage[{newEmbed:{title:🚛 | Viajar | 🚛}{description:Para terminar a viagem você precisa usar o comando **m.viagem**, e completar o minigame sugerido, esteja preparado para realiza-lo!}{color:#ffffff}}]
   $setGlobalUserVar[emviagem;true;$authorID]
   $title[🚛 | Viajar | 🚛]
   $description[você aceitou a entrega gerada!

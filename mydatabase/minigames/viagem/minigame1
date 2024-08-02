@@ -1,0 +1,8 @@
+$title[▶️ | Clique no botão o mais rápido possível! | ◀️]
+$description[Clique no botão!]
+$color[#3498db]
+$addButton[1;Botão;success;MN1_$authorID;false;✅],,,$deletecommand
+$title[🎉 | Você conseguiu! | 🎉]
+$description[Você completou a viagem com sucesso! e ganhou um aumento de 6%! R$$numberSeparator[$roundTenth[$math[$getObjectProperty[user;pagamento]*1.06];2]]]
+$setGlobalUserVar[money;$sum[$getGlobalUserVar[money];$roundTenth[$math[$getObjectProperty[user;pagamento]*1.06];2]]]
+$createObject[user;$getGlobalUserVar[enGerada;$authorID]]
