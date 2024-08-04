@@ -18,7 +18,7 @@ const client = new AoiClient({
 const canvas = new AoiCanvas(client);
 
 client.variables({
-    version: "1.0.6 (error fixed)",
+    version: "1.0.65",
     conta: "x",
     privado: false,
     pontos: 0,
@@ -36,6 +36,7 @@ client.variables({
     tempoviagem: "x",
     tentativas: "0",
     minigame: "0",
+    ultviagem: "Rio de Janeiro"
 });
 
 const manutencao = "não"

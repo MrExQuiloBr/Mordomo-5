@@ -1,0 +1,1 @@
+{"privado_340959314808406017":{"value":"false","type":"string","key":"privado_340959314808406017"},"posição_1021204685782257775":{"value":"<@&1256016609936539702>","type":"string","key":"posição_1021204685782257775"},"ultviagem_1171963692984844401":{"value":"teste","type":"string","key":"ultviagem_1171963692984844401"}}
