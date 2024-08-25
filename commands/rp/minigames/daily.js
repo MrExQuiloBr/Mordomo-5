@@ -40,6 +40,7 @@ module.exports = [{
   $let[roll3;$randomText[Man;Volvo;Iveco;Daf;Mercedes-Benz;Renault;Scania;Ford]]
   $let[roll2;$randomText[Daf;Man;Volvo;Scania;Iveco;Mercedes-Benz;Renault;Ford]]
   $let[roll1;$randomText[Man;Volvo;Ford;Scania;Iveco;Daf;Mercedes-Benz;Renault]]
-  $cooldown[1d;⏰ | <@$authorID>, Você já pegou seu daily hoje! Volte amanhã!]
+  $cooldown[20h;⏰ | <@$authorID>, Você já pegou seu daily hoje! Volte em %time%!]
+  $onlyIf[$getGlobalUserVar[conta]!=x;❌ | <@$authorID>, Você não tem uma conta! Use \`m.cadastar\` para criar uma!]
   `
 }]

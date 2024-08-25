@@ -4,7 +4,7 @@ module.exports = [{
   code: `
   $title[📋 | Perfil | 📋]
   $description[$getGlobalUserVar[posição;$mentioned[1;true]]
-  **💳 | Nome:** \`$username[$mentioned[1;true]]\`
+  **💳 | Nome:** \`$username[$mentioned[1;true]]\` $if[$mentioned[1;true]==1171963692984844401;<:Developer:1267137134339555332>]
   **📋 | TikTok:** $if[$getGlobalUserVar[privado;$mentioned[1;true]]==true;\`xxxxxxxx\`;\`$getGlobalUserVar[conta;$mentioned[1;true]]\`]
   **💰 | Pontos:** $numberSeparator[$getGlobalUserVar[pontos;$mentioned[1;true]]]
   **📆 | Data de criação:** $creationDate[$mentioned[1;true];date]]
@@ -13,6 +13,7 @@ module.exports = [{
   $addButton[1;Editar Tiktok;danger;EDIT_$authorID;false;✏️]
   $if[$mentioned[1;true]!=$authorID;;$addButton[1;Privar tiktok;secondary;PRV_$authorID;false;🔒]
   $addButton[1;Tiktok Público;secondary;NPRV_$authorID;false;🔓]]
+  $onlyIf[$getGlobalUserVar[conta;$mentioned[1;true]]!=x;❌ | você ou esse usuário não tem uma conta! use \`m.cadastrar\` para criar uma conta!]
   `
 },{
   type: "interaction",

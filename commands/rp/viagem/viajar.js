@@ -1,7 +1,9 @@
 module.exports = [{
   name: "viajar",
   aliases: ['trabalhar', 'work'],
+  $if: "old",
   code: `
+  $if[$fileExists[./mydatabase/map/$getGlobalUserVar[estado]/$getGlobalUserVar[cidade].json]==true]
   $title[🚛 | Viajar | 🚛]
   $description[**📍 | Início:** $getObjectProperty[rotas;Inicio]
   **📌 | Destino:** $getObjectProperty[rotas;Destino]
@@ -12,8 +14,7 @@ module.exports = [{
   **🚚 | Reboque:** $getObjectProperty[rotas;Reboque]
   **🏷️ | Entrega:** $getObjectProperty[rotas;Entrega]
   **💰 | XP Necessário:** $getObjectProperty[rotas;xpnecessário]
-  $if[$getGlobalUserVar[caminhão;$authorID]==x;;**🚛 | Potência necessária:** $getObjectProperty[rotas;caminhao]]
-  ]
+  $if[$getGlobalUserVar[caminhão;$authorID]==x]**🚛 | Potência necessária:** $getObjectProperty[rotas;caminhao]$endif]
   $image[$getObjectProperty[rotas;Imagem]]
   $color[#ffffff]
   $addButton[1;;primary;AVR_$authorID;false;▶️]
@@ -22,6 +23,42 @@ module.exports = [{
   $createObject[rotas;$splitText[1]]
   $textSplit[$readFile[./mydatabase/map/$getGlobalUserVar[estado;$authorID]/$getGlobalUserVar[cidade;$authorID].json];,,,]
   $setGlobalUserVar[page;1;$authorID]
+  $else
+  $title[🚛 | Viajar | 🚛]
+  $description[**📍 | Início:** $getGlobalUserVar[cidade;$authorID]
+  **📌 | Destino:** $get[city]
+  **🌃 | Estado:** $get[estado]
+  **🏭 | Empresa Inicial:** $get[empresaINI]
+  **🏭 | Empresa Final:** $get[empresaFIM]
+  **💵 | Pagamento:** R$$numberSeparator[$get[pagamento]]
+  **⏰ | Tempo:** $get[tempo] minutos]
+  $thumbnail[$getObjectProperty[city2;image]]
+  $footer[entregas geradas!]
+  $color[#ff0000]
+  $addButton[1;;primary;Gerador;false;▶️]
+  $addButton[1;Aceitar entrega;success;ACTG_$authorID;false;✅]
+  $setGlobalUserVar[enGerada;{
+  "inicio": "$getGlobalUserVar[cidade;$authorID]",
+  "Destino": "$get[city]",
+  "Estado": "$get[estado]",
+  "empresaini": "$get[empresaINI]",
+  "empresafim": "$get[empresaFIM]",
+  "Pagamento": "$get[pagamento]",
+  "tempo": "$get[tempo]"
+  };$authorID]
+  $let[tempo;$if[$get[estado]==$getGlobalUserVar[estado;$authorID]]$random[40;100]$else$random[100;350]$endif]
+  $let[pagamento;$if[$get[estado]==$getGlobalUserVar[estado;$authorID]]$random[221;771]$else$random[771;2089]$endif]
+  
+  $let[empresaFIM;$randomText[Itaú Unibanco;Bradesco;Banco do Brasil;Santander Brasil;Caixa Econômica Federal;Rede D'Or São Luiz;Hapvida;Dasa;SulAmérica;Unimed;Rede Globo;SBT;Record TV;Band;Natura;Lojas Americanas;Via Varejo;Renner;C&A;Riachuelo;Carrefour Brasil;Grupo BIG;Centauro;Netshoes;Amazon Brasil;Mercado Livre;Tok&Stok;Casas Bahia;Leroy Merlin;Fast Shop]]
+  $let[empresaINI;$randomText[Vale;Petrobras;Embraer;Ambev;BRF;JBS;Natura;Suzano;Gerdau;Klabin;Weg;Marfrig;CSN;Usiminas;Bunge;Eletrobras;Votorantim;Raízen;Grupo Pão de Açúcar;Rumo Logística;Minerva Foods;Localiza;Energisa;Grupo Fleury;Hering;Boticário;Duratex;Magazine Luiza;Cemig;Copel]]
+  $createObject[city2;$readFile[./mydatabase/map/$get[estado]/$get[city].config]]
+  $let[city;$splitText[$random[2;$sum[$splitText[1];1]]]]
+  $textSplit[$readFile[./mydatabase/map/$get[estado]/city.config];,]
+  $let[estado;$randomText[São Paulo;Rio de Janeiro]]
+  $createObject[city1;$readFile[./mydatabase/map/$getGlobalUserVar[estado;$authorID]/$getGlobalUserVar[cidade;$authorID].config]]
+  $endif
+  $onlyIf[$getGlobalUserVar[cidade]!=x;❌ | você ainda não escolheu um lugar pra começar! use \`m.start\`]
+  $onlyIf[$getGlobalUserVar[conta]!=x;❌ | <@$authorID>, Você não tem uma conta! Use \`m.cadastar\` para criar uma!]
   `
 },{
   // botão avançar
@@ -106,7 +143,6 @@ module.exports = [{
   **🏭 | Empresa Final:** $get[empresaFIM]
   **💵 | Pagamento:** R$$numberSeparator[$get[pagamento]]
   **⏰ | Tempo:** $get[tempo] minutos
-  **🏙️ | Local:** $get[local]]
   $thumbnail[$getObjectProperty[city2;image]]
   $footer[entregas geradas!]
   $color[#ff0000]
@@ -114,15 +150,13 @@ module.exports = [{
   $addButton[1;Aceitar entrega;success;ACTG_$authorID;false;✅]
   $setGlobalUserVar[enGerada;{
   "inicio": "$getGlobalUserVar[cidade;$authorID]",
-  "destino": "$get[city]",
-  "estado": "$get[estado]",
+  "Destino": "$get[city]",
+  "Estado": "$get[estado]",
   "empresaini": "$get[empresaINI]",
   "empresafim": "$get[empresaFIM]",
-  "pagamento": "$get[pagamento]",
-  "tempo": "$get[tempo]",
-  "local": "$get[local]"
+  "Pagamento": "$get[pagamento]",
+  "tempo": "$get[tempo]"
   };$authorID]
-  $let[local;$if[$getObjectProperty[city2;program]==true;Após a viagem você vai ficar em $get[city]!;Após a viagem você voltará a cidade de onde saiu!]]
   $let[tempo;$if[$get[estado]==$getGlobalUserVar[estado;$authorID];$random[40;100];$random[100;350]]]
   $let[pagamento;$if[$get[estado]==$getGlobalUserVar[estado;$authorID];$random[221;771];$random[771;2089]]]
   
@@ -139,6 +173,7 @@ module.exports = [{
   type: "interaction",
   prototype: "button",
   code: `
+  $deleteCommand
   $setGlobalUserVar[emviagem;true;$authorID]
   $title[🚛 | Viajar | 🚛]
   $description[Você aceitou a viagem!
@@ -149,6 +184,7 @@ module.exports = [{
   $setGlobalUserVar[viagem;$getGlobalUserVar[page;$authorID];$authorID]
   $thumbnail[$getObjectProperty[rotas;Imagem]]
   $color[#82FA58]
+  $setGlobalUserVar[enGerada;$splitText[$getGlobalUserVar[page;$authorID]]]
   $createObject[rotas;$splitText[$getGlobalUserVar[page;$authorID]]]
   $textSplit[$readFile[./mydatabase/map/$getGlobalUserVar[estado;$authorID]/$getGlobalUserVar[cidade;$authorID].json];,,,]
   $onlyIf[$advancedTextSplit[$interactionData[customId];_;2]==$interactionData[author.id];{options:{ephemeral:true}}
@@ -160,18 +196,19 @@ module.exports = [{
   type: "interaction",
   prototype: "button",
   code: `
+  $deleteCommand
   $sendMessage[{newEmbed:{title:🚛 | Viajar | 🚛}{description:Para terminar a viagem você precisa usar o comando **m.viagem**, e completar o minigame sugerido, esteja preparado para realiza-lo!}{color:#ffffff}}]
   $setGlobalUserVar[emviagem;true;$authorID]
   $title[🚛 | Viajar | 🚛]
   $description[você aceitou a entrega gerada!
   **📍 | Início:** $getGlobalUserVar[cidade;$authorID]
-  **📌 | Destino:** $getObjectProperty[user;destino]
-  **🌃 | Estado:** $getObjectProperty[user;estado]
-  **💵 | Pagamento:** R$$numberSeparator[$getObjectProperty[user;pagamento]]]
+  **📌 | Destino:** $getObjectProperty[user;Destino]
+  **🌃 | Estado:** $getObjectProperty[user;Estado]
+  **💵 | Pagamento:** R$$numberSeparator[$getObjectProperty[user;Pagamento]]]
   $color[#82FA58]
   $thumbnail[$getObjectProperty[city2;image]]
   $setGlobalUserVar[viagemType;gerada;$authorID]
-  $createObject[city2;$readFile[./mydatabase/map/$getObjectProperty[user;estado]/$getObjectProperty[user;destino].config]]
+  $createObject[city2;$readFile[./mydatabase/map/$getObjectProperty[user;Estado]/$getObjectProperty[user;Destino].config]]
   $createObject[user;$getGlobalUserVar[enGerada;$authorID]]
   $onlyIf[$advancedTextSplit[$interactionData[customId];_;2]==$interactionData[author.id];{options:{ephemeral:true}}
     {extraOptions:{interaction:true}}]

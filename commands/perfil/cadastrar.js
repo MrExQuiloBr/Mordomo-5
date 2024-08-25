@@ -1,6 +1,6 @@
 module.exports = [{
   name: "cadastrar",
-  aliases: ['registrar', 'start', 'cadastro'],
+  aliases: ['registrar', 'cadastro'],
   code: `
   $title[📋 | Cadastro | 📋]
   $description[Escreva no chat o seu Nick do TikTok! **NÃO** use o apelido!
@@ -26,6 +26,7 @@ o processo do registro pode demorar, o processo para validar sua conta pode acab
   type: "interaction",
   prototype: "button",
   code: `
+  $deleteCommand
   $title[📋 | Cadastro | 📋]
   $description[sua conta foi definida com sucesso! você vai querer privar o seu nome? lembrando que seu nome do TikTok não irá aparecer caso alguém use m.perfil em você, porém irá aparecer caso algum administrador use um comando especial!]
   $color[#c3ffb1]
@@ -39,6 +40,7 @@ o processo do registro pode demorar, o processo para validar sua conta pode acab
   type: "interaction",
   prototype: "button",
   code: `
+  $deleteCommand
   $title[📋 | Cadastro | 📋]
   $description[✅ | sua conta foi privada com sucesso!]
   $color[#c3ffb1]
@@ -51,6 +53,7 @@ $setGlobalUserVar[privado;true;$authorID]
   type: "interaction",
   prototype: "button",
   code: `
+  $deleteCommand
   $title[📋 | Cadastro | 📋]
   $description[✅ | sua conta agora é publica!]
   $color[c3ffb1]
@@ -63,6 +66,7 @@ $setGlobalUserVar[privado;false;$authorID]
   type: "interaction",
   prototype: "button",
   code: `
+  $deleteCommand
   $title[📋 | Cadastro | 📋]
   $description[❌ | ação cancelada!]
   $color[#ff0000]

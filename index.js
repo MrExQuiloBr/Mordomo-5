@@ -18,22 +18,21 @@ const client = new AoiClient({
 const canvas = new AoiCanvas(client);
 
 client.variables({
-    version: "1.0.65",
+    version: "1.1.0",
     conta: "x",
     privado: false,
     pontos: 0,
-    estado: "São Paulo",
-    cidade: "São Paulo",
+    estado: "x",
+    cidade: "x",
     page: "1",
     viagem: "false",
     emviagem: "false",
     buttonpress: "false",
-    money: 0,
+    money: "0",
     caminhão: "x",
     enGerada: "x",
     viagemType: "x",
     posição: "<@&1241357767831326780>",
-    tempoviagem: "x",
     tentativas: "0",
     minigame: "0",
     ultviagem: "Rio de Janeiro"
