@@ -28,4 +28,30 @@
   "Imagem": "https://media.discordapp.net/attachments/1247245575284326543/1247247857195548772/Screenshot_20240603_145716_Maps.jpg?ex=665f5595&is=665e0415&hm=f10174aaaf42284bb0e3d592b4298b08016cb13193d939f4889c18a2f69106bc&",
   "Local": "Após a viagem você retornará a Cidade de onde saiu!, pois, essa cidade ainda não é uma cidade com programação escrita!",
   "Estado": "São Paulo"
+},,,{
+  "Inicio": "São Paulo",
+  "Destino": "Rio de Janeiro",
+  "Pagamento": "2100",
+  "Tempo": "5 horas e 50 minutos",
+  "EmpresaInicial": "Centro Logístico Rio de janeiro",
+  "EmpresaFinal": "Porto de São Paulo",
+  "Reboque": "Bitrem",
+  "Entrega": "Shopee",
+  "xpnecessário": "0",
+  "caminhao": "0",
+  "Imagem": "https://media.discordapp.net/attachments/1271541244123938927/1281017541807833149/Screenshot_20240904_192225_Maps.jpg?ex=66da300e&is=66d8de8e&hm=e16ec8770a7da34acde559efb9a23a4e39ba069de31a58c10b326fbd9f6b76ea&",
+  "Estado": "Rio de Janeiro"
+},,,{
+  "Inicio": "São Paulo",
+  "Destino": "Santos",
+  "Pagamento": "670",
+  "Tempo": "1 hora e 50 minutos",
+  "EmpresaInicial": "Central da Arte São Paulo",
+  "EmpresaFinal": "Shopping Center Santos",
+  "Reboque": "Normal",
+  "Entrega": "Obras de Arte",
+  "xpnecessário": "0",
+  "caminhao": "0",
+  "Imagem": "https://media.discordapp.net/attachments/1271541244123938927/1281018717202939926/Screenshot_20240904_193035_Maps.jpg?ex=66da3126&is=66d8dfa6&hm=22bb114ad3cd631476123019542b86c0acf47e722bf5d6f36775cfe8a6bee9e9&",
+  "Estado": "São Paulo"
 }

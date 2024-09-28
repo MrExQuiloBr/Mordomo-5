@@ -1,5 +1,4 @@
 const { AoiClient } = require("aoi.js");
-const { AoiCanvas } = require("aoi.canvas");
 
 const client = new AoiClient({
     token: process.env.TOKEN, // Here goes the Token you copied earlier!
@@ -15,10 +14,8 @@ const client = new AoiClient({
     }
 });
 
-const canvas = new AoiCanvas(client);
-
 client.variables({
-    version: "1.1.0",
+    // rp  
     conta: "x",
     privado: false,
     pontos: 0,
@@ -32,13 +29,25 @@ client.variables({
     caminhão: "x",
     enGerada: "x",
     viagemType: "x",
-    posição: "<@&1241357767831326780>",
     tentativas: "0",
     minigame: "0",
-    ultviagem: "Rio de Janeiro"
+    // system
+    version: "1.2.0",
+    ultviagem: "Rio de Janeiro",
+    emblema: "Membro",
+    posição: "1241357767831326780",
+    tdcount: "0",
+    tacount: "0",
+    tscount: "0",
+    trcount: "0",
+    ownerticket: "0",
+    // staffs
+    birdafk: "false",
+    birdreasson: "x",
+    birdclass: "<@&1289271325583741009>"
 });
 
-const manutencao = "não"
+const manutencao = "sim"
 
 if (manutencao === "não") {
     client.status({
@@ -70,5 +79,6 @@ client.joinCommand({ // Exclude "on" of the event's name. For example, "onTyping
   channel: "1241346112124616744",
   code: `**$username** entrou no server! Seja bem vindo(a)!`
 });
+
 
 client.loadCommands("./commands");

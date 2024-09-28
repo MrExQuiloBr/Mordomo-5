@@ -5,15 +5,17 @@ module.exports = [{
   $title[📃 | Comandos | 📃]
   $description[**🚛 | RP:**
   daily
+  viagem
+  viajar
+  start
 **👤 | Perfil:**
   conta
   cadastrar
-**⚙️ | Sistema:**
-  criar-comboio
 **🔧 | Outros:**
   ping
   log
-  help]
+  help
+  converter]
   $footer[prefixo: m.;$authorAvatar]
   $color[#489cd3]
   $author[$username;$authorAvatar]

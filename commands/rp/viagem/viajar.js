@@ -57,6 +57,7 @@ module.exports = [{
   $let[estado;$randomText[São Paulo;Rio de Janeiro]]
   $createObject[city1;$readFile[./mydatabase/map/$getGlobalUserVar[estado;$authorID]/$getGlobalUserVar[cidade;$authorID].config]]
   $endif
+  $cooldown[10m;❌ | Espere %time% para poder viajar novamente!]
   $onlyIf[$getGlobalUserVar[cidade]!=x;❌ | você ainda não escolheu um lugar pra começar! use \`m.start\`]
   $onlyIf[$getGlobalUserVar[conta]!=x;❌ | <@$authorID>, Você não tem uma conta! Use \`m.cadastar\` para criar uma!]
   `
@@ -174,6 +175,7 @@ module.exports = [{
   prototype: "button",
   code: `
   $deleteCommand
+  $sendMessage[{newEmbed:{title:🚛 | Viajar | 🚛}{description:Para terminar a viagem você precisa usar o comando **m.viagem**, e completar o minigame sugerido, esteja preparado para realiza-lo!}{color:#ffffff}}]
   $setGlobalUserVar[emviagem;true;$authorID]
   $title[🚛 | Viajar | 🚛]
   $description[Você aceitou a viagem!

@@ -3,8 +3,8 @@ module.exports = [{
   aliases: ['perfil', 'profile'],
   code: `
   $title[📋 | Perfil | 📋]
-  $description[$getGlobalUserVar[posição;$mentioned[1;true]]
-  **💳 | Nome:** \`$username[$mentioned[1;true]]\` $if[$mentioned[1;true]==1171963692984844401;<:Developer:1267137134339555332>]
+  $description[<@&$getGlobalUserVar[posição;$mentioned[1;true]]>
+  **💳 | Nome:** \`$username[$mentioned[1;true]]\` $if[$getGlobalUserVar[emblema;$mentioned[1;true]]==Owner;<:Developer:1267137134339555332>]$if[$getGlobalUserVar[emblema;$mentioned[1;true]]==Streamer;<:Streamer:1282463490531004496>]
   **📋 | TikTok:** $if[$getGlobalUserVar[privado;$mentioned[1;true]]==true;\`xxxxxxxx\`;\`$getGlobalUserVar[conta;$mentioned[1;true]]\`]
   **💰 | Pontos:** $numberSeparator[$getGlobalUserVar[pontos;$mentioned[1;true]]]
   **📆 | Data de criação:** $creationDate[$mentioned[1;true];date]]

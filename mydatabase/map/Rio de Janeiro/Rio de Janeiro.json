@@ -1,0 +1,27 @@
+{
+  "Inicio": "Rio de Janeiro",
+  "Destino": "São Paulo",
+  "Pagamento": "2100",
+  "Tempo": "5 horas e 50 minutos",
+  "EmpresaInicial": "Porto do Rio de Janeiro",
+  "EmpresaFinal": "Centro Logístico São Paulo",
+  "Reboque": "Bitrem",
+  "Entrega": "Shopee",
+  "xpnecessário": "0",
+  "caminhao": "0",
+  "Imagem": "https://media.discordapp.net/attachments/1271541244123938927/1281017541807833149/Screenshot_20240904_192225_Maps.jpg?ex=66da300e&is=66d8de8e&hm=e16ec8770a7da34acde559efb9a23a4e39ba069de31a58c10b326fbd9f6b76ea&",
+  "Estado": "São Paulo"
+},,,{
+  "Inicio": "Rio de Janeiro",
+  "Destino": "São Carlos",
+  "Pagamento": "4500",
+  "Tempo": "8 horas e 4 minutos",
+  "EmpresaInicial": "Centro Petrolifero de Rio de Janeiro",
+  "EmpresaFinal": "Posto Sewal",
+  "Reboque": "Bitrem",
+  "Entrega": "Diesel",
+  "xpnecessário": "0",
+  "caminhao": "0",
+  "Imagem": "https://media.discordapp.net/attachments/1271541244123938927/1281021536534401035/Screenshot_20240904_194150_Maps.jpg?ex=66da33c6&is=66d8e246&hm=4677ebe7a124680976e23f062762dea887b89673abbc558b7026edc8166662c9&",
+  "Estado": "São Paulo"
+}

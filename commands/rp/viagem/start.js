@@ -21,7 +21,8 @@ module.exports = [{
   Campinas
   Rio Claro
   São Carlos
-  Sorocaba | 🌁]
+  Sorocaba
+  Santos| 🌁]
   $color[#8fd3ff]
   $footer[Escreva o nome da cidade aonde você deseja começar! você tem 50 segundos. se o tempo estrapolar você pode voltar o comando usando a barra abaixo.]
   $awaitMessages[$channelID;$authorID;50s;everything;spc;❌ | a ação foi cancelada! você demorou demais para responder e para recomeçar escolha o estado novamente na barra!]

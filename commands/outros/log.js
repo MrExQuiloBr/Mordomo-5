@@ -22,6 +22,10 @@ module.exports = [{
   + converter
   + saldo
   / criar-comboio;false]
+  $addField[1.2.0; + afk staff
+  + moderation response
+  + moderation class
+  + central de ajuda;false]
   $footer[estamos na versão $getVar[version];$authorAvatar]
   $color[#ff4500]
   `
