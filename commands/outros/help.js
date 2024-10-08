@@ -11,6 +11,7 @@ module.exports = [{
 **👤 | Perfil:**
   conta
   cadastrar
+  correio
 **🔧 | Outros:**
   ping
   log

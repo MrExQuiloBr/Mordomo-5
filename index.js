@@ -32,7 +32,7 @@ client.variables({
     tentativas: "0",
     minigame: "0",
     // system
-    version: "1.2.0",
+    version: "1.3.0",
     ultviagem: "Rio de Janeiro",
     emblema: "Membro",
     posição: "1241357767831326780",
@@ -41,13 +41,17 @@ client.variables({
     tscount: "0",
     trcount: "0",
     ownerticket: "0",
+    quantcorr: "1",
+    leucorr: "false",
+    pagecorr: "1",
+    correios: "1",
     // staffs
     birdafk: "false",
     birdreasson: "x",
     birdclass: "<@&1289271325583741009>"
 });
 
-const manutencao = "sim"
+const manutencao = "não"
 
 if (manutencao === "não") {
     client.status({
@@ -77,7 +81,11 @@ if (manutencao === "não") {
 
 client.joinCommand({ // Exclude "on" of the event's name. For example, "onTypingStart" becomes "typingStartCommand"
   channel: "1241346112124616744",
-  code: `**$username** entrou no server! Seja bem vindo(a)!`
+  code: `$title[$username Entrou no server!]
+  $description[<@$authorID> Entrou no servidor! seja muito bem vindo(a)! leia as <#1241345284278059110> e esperamos que se sinta bem acolhido!]
+  $footer[id: $authorID;$authorAvatar]
+  $thumbnail[$authorAvatar]
+  $color[#ff64e0]`
 });
 
 

@@ -26,6 +26,11 @@ module.exports = [{
   + moderation response
   + moderation class
   + central de ajuda;false]
+  $addField[1.3.0; + correios
+  + notall
+  + evp
+  + logfile
+  / conta;false]
   $footer[estamos na versão $getVar[version];$authorAvatar]
   $color[#ff4500]
   `
