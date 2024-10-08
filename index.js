@@ -45,6 +45,7 @@ client.variables({
     leucorr: "false",
     pagecorr: "1",
     correios: "1",
+    msgcorr: "59",
     // staffs
     birdafk: "false",
     birdreasson: "x",
