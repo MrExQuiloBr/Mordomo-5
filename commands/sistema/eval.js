@@ -22,7 +22,7 @@ module.exports = [{
     $channelSendMessage[$get[channel];{newEmbed:{title:📝 | Eval | 📝}{description:O moderador <@$authorID> aumentou **$message[2]** da variável **$message[3]** do id **$message[4]**, [<@$message[4]>]}{color:ff64e0}{thumbnail:$authorAvatar}{author:$username:$authorAvatar}{footer:Comando Administrativo}};false]
   $endif
   $if[$message[1]==sub]
-  $writeFile[./mydatabase/logs/eval.txt;O moderador <@$authorID> retirou **$message[2]** da variável **$message[3]** do id **$message[4]**, [<@$message[4]>] / / type: sum
+  $writeFile[./mydatabase/logs/eval.txt;O moderador <@$authorID> retirou **$message[2]** da variável **$message[3]** do id **$message[4]**, [<@$message[4]>] / / type: sub
   $readFile[./mydatabase/logs/eval.txt]]
     $title[📝 | Eval | 📝]
     $description[O moderador <@$authorID> retirou **$message[2]** da variável **$message[3]** do id **$message[4]**, [<@$message[4]>]]
@@ -34,7 +34,7 @@ module.exports = [{
     $channelSendMessage[$get[channel];{newEmbed:{title:📝 | Eval | 📝}{description:O moderador <@$authorID> retirou **$message[2]** da variável **$message[3]** do id **$message[4]**, [<@$message[4]>]}{color:ff64e0}{thumbnail:$authorAvatar}{author:$username:$authorAvatar}{footer:Comando Administrativo}};false]
   $endif
   $if[$message[1]==set]
-  $writeFile[./mydatabase/logs/eval.txt;O moderador <@$authorID> colocou **$message[2]** da variável **$message[3]** do id **$message[4]**, [<@$message[4]>] / / type: sum
+  $writeFile[./mydatabase/logs/eval.txt;O moderador <@$authorID> colocou **$message[2]** da variável **$message[3]** do id **$message[4]**, [<@$message[4]>] / / type: set
   $readFile[./mydatabase/logs/eval.txt]]
     $title[📝 | Eval | 📝]
     $description[O moderador <@$authorID> colocou **$message[2]** da variável **$message[3]** do id **$message[4]**, [<@$message[4]>]]

@@ -32,7 +32,7 @@ client.variables({
     tentativas: "0",
     minigame: "0",
     // system
-    version: "1.3.0",
+    version: "1.3.1",
     ultviagem: "Rio de Janeiro",
     emblema: "Membro",
     posição: "1241357767831326780",
@@ -46,6 +46,7 @@ client.variables({
     pagecorr: "1",
     correios: "1",
     msgcorr: "59",
+    cartas: "1",
     // staffs
     birdafk: "false",
     birdreasson: "x",
